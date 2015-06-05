@@ -8,7 +8,7 @@ namespace atom {
   // Prevent tons of typing
   typedef unsigned char byte;
 
-  uintptr_t SignatureScanner::FindSignature(
+  void* SignatureScanner::FindSignature(
       const std::vector<byte>& signature,
       const char* mask,
       size_t offset,
@@ -64,13 +64,13 @@ namespace atom {
         // If the increment count equals the signature length,
         // we know we have a match!
         if(x == signature.size()) {
-          return start;
+          return reinterpret_cast<void*>(start);
         } else {
           x = 0;
         }
       }
     }
 
-    return 0;
+    return nullptr;
   }
 }

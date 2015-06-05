@@ -67,7 +67,7 @@ namespace atom {
     * @return The memory address of the first match of the signature,
     *         otherwise zero is returned (i.e null).
     */
-    uintptr_t FindSignature(
+    void* FindSignature(
       const std::vector<unsigned char>& signature,
       const char* mask,
       size_t offset = 0,
